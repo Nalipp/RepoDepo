@@ -2,7 +2,7 @@
 <h1>Posts</h1>
   <h3><% @posts.each do |post| %></h3>
   <h3><%= link_to post.title, post_path(post) %></h3>
-  <h3>User:<%= post.user.email %></h3>
+  <h3>User:<%= post.user.email if post.user.email? %></h3>
   <h3><%= post.description %></h3>
   <h3><%= post.link %></h3>
   <% end %>
