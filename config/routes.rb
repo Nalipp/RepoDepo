@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   root 'posts#index'
   resources :posts
+
+  get 'my_friends', to: "users#my_friends"
 end
