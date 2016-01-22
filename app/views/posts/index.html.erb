@@ -1,6 +1,9 @@
+<div class="container">
 <h1>Posts</h1>
-<h3><% @posts.each do |post| %></h3>
-<h3><%= post.title %></h3>
-<h3><%= post.description %></h3>
-<h3><%= post.link %></h3>
-<% end %>
+  <h3><% @posts.each do |post| %></h3>
+  <h3><%= post.title %></h3>
+  <h3><%= post.description %></h3>
+  <h3><%= post.link %></h3>
+  <% end %>
+  <%= link_to "New Post", new_post_path, class: "btn btn-primary btn-lg"%>
+</div>
