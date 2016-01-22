@@ -8,5 +8,6 @@ class UsersController < ApplicationController
   end
 
   def my_friends
+    @friendships = current_user.friends
   end
 end
