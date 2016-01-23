@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h1>Share my Repo</h1>
+    <h4>A place for aspiring developers to share and review code.</h4>
+  </div>
+  <div class="col-xs-12">
+    <h3>Find</h3>
+    <p>View code repositories from other users.</p>
+  </div>
+  <div class="col-xs-12">
+    <h3>Share</h3>
+    <p>Share your code creations.</p>
+  </div>
+  <div class="col-xs-12">
+    <h3>Follow</h3>
+    <p>Keep track of other who are at a similar level.</p>
+  </div>
+  <div class="col-xs-12">
+    <% unless user_signed_in? %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Look around", posts_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>
