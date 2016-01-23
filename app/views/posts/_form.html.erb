@@ -1,0 +1,19 @@
+<div class="container">
+<%= form_for @post do |f| %>
+  <div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div>
+    <h3><%= f.submit class: "btn btn-primary btn-lg" %> [ <%= link_to "Cancel", posts_path %> ]</h3>
+  </div>
+  <% end %>
+</div>

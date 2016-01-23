@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post was created successfully"
       redirect_to post_path(@post)
     else
+      flash[:danger] = "Unable to process post"
       render 'new'
     end
   end
@@ -29,6 +31,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post was successfully updated"
       redirect_to post_path(@post)
     else
+      flash[:danger] = "Unable to update post"
       render 'edit'
     end
   end
@@ -49,5 +52,12 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :description, :link)
+    end
+
+    def require_same_user
+      if current_user != @post.user and !current_user.admin?
+        flash[:danger] = "You can only edit or delete your own articles"
+        redirect_to root_path
+      end
     end
 end

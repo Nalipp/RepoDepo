@@ -9,8 +9,12 @@
   <div>
   <%= @post.link %>
   </div>
-  <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-xs btn-primary" %>
-  <%= link_to "Delete this post", post_path(@post), method: :delete,
+  <% if @post.user.id == current_user.id %>
+    <div class="container">
+      <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete this post", post_path(@post), method: :delete,
                                     data: {confirm: "Are you sure"}, class: "btn btn-xs btn-danger" %>
-  <%= link_to "View all posts", posts_path, class: "btn btn-xs btn-success" %>
+      <%= link_to "View all posts", posts_path, class: "btn btn-xs btn-success" %>
+    </div>
+  <% end %>
 </div>
