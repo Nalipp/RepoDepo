@@ -1,2 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.inlinePost {
+  color: grey;
+}
+
+#post-path {
+  padding-right: 8px;
+}
+
+#post-link {
+  color: lightgray;
+}
