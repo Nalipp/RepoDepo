@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def index
     @users = User.all
   end
@@ -32,4 +34,12 @@ class UsersController < ApplicationController
       redirect_to my_friends_path, flash[:error] = "There was an error with adding user as friend"
     end
   end
+
+  def destroy
+   @user = User.find(params[:id])
+
+   if @user.destroy
+       redirect_to users_path, notice: "User deleted."
+   end
+ end
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
 
   devise_for :users, :controllers => { :registrations => "user/registrations" }
+    match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   resources :users, only: [:index, :show]
   resources :friendships
   resources :posts

@@ -1,5 +1,14 @@
 <div class="container">
-  <h1><%= @user.name %><span><%= link_to "", edit_user_registration_path, class:"glyphicon glyphicon-cog" %></span></h1>
+  <h1><%= @user.name %>
+    <span>
+    <% if @user.id == current_user.id || current_user.admin? %>
+      <%= link_to "", edit_user_registration_path, class:"glyphicon glyphicon-cog" %>
+    <% end %>
+    <% if current_user.admin? %>
+      <%= link_to "Destroy", admin_destroy_user_path, class:"btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+    </span>
+  </h1>
   <%= gravatar_for(@user, 80) %>
   <h4>Email : <%= @user.email %></h4>
   <h4>Name : <%= @user.name %></h4>
