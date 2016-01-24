@@ -1,34 +1,42 @@
-<%= render 'friends/lookup' %>
-<% if @friendships.size > 0 %>
-  <table>
-    <thead>
-      <tr>
-        <th>
-          <h2>My Freinds</h2>
-        </th>
-      </tr>
-      <tr>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @friendships.each do |friend| %>
-      <tr>
-        <td><%= friend.email%></td>
-        <td>
-          <%= link_to "View Profile", user_path(friend), class:"btn btn-primary btn-xs"%>
-          <%= link_to "Remove Friend", friendship_path(friend),
-                                      :method => :delete,
-                                      :data => { :confirm => "Are you sure?" },
-                                      :class => "btn btn-xs btn-danger" %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <div class="row col-lg-12">
-    <p>You Don't have any friends yet, Please add some!</p>
+<div class="container">
+  <div class="col-md-12">
+    <%= render 'friends/lookup' %>
   </div>
-<% end %>
+    <div class="col-md-6">
+    <% if @friendships.size > 0 %>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <h3>My Freinds</h3>
+            </th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @friendships.each do |friend| %>
+          <tr>
+            <td id="user-table" class="col-xs-2"><%= gravatar_for(friend, 30) %></td>
+            <td><%= friend.name %></td>
+            <td>
+              <%= link_to "View Profile", user_path(friend), class:"btn btn-primary btn-xs"%>
+              <%= link_to "Remove Friend", friendship_path(friend),
+                                          method: :delete,
+                                          data: { confirm: "Are you sure?" },
+                                          class:"btn btn-xs btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="row col-xs-12">
+        <p>You Don't have any friends yet, Please add some!</p>
+      </div>
+    <% end %>
+  </div>
+</div>
