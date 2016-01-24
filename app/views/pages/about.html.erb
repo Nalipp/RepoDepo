@@ -1,6 +1,26 @@
-<div class="container">
+<div class="container" id="about-page">
   <div class="col-xs-12">
-    <h1>Share my code</h1>
-      <%= gravatar_for (User.find(1)) %>
+  </div>
+  <div class="col-xs-2">
+    <%= gravatar_for(User.find(1), 80) %>
+    <h3>Nate Lipp</h3>
+    <h3>
+      <i class="fa fa-github-alt"></i>
+      <i class="fa fa-twitter-square"></i>
+    </h3>
+  </div>
+  <div class="col-xs-10">
+    <p>
+      Instead of just finishing a tutorial and going onto the next one.<br/>
+      Share your experience with others.<br/>
+      Start a discussion.<br/>
+      Or create and share a project that is similar to the material that you studied.
+    </p>
+    <p>
+      If you have any ideas of how this site could improve.<br/>
+      Or even just want to chat.<br/>
+      Feel free to message me.
+    </p>
+    </div>
   </div>
 </div>

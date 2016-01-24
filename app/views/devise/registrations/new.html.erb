@@ -27,7 +27,8 @@
         </div>
 
         <div class="actions">
-          <h3><%= f.submit "Sign up", class:"btn btn-lg btn-primary" %> [ <%= link_to "Log in", new_user_session_path %> ] [ <%= link_to "Cancel", posts_path %> ]</h3>
+          <%= f.submit "Sign up", class:"btn btn-md btn-primary" %><br />
+          <h4>[ <%= link_to "Sign up", new_user_session_path %> ] [ <%= link_to "Cancel", posts_path %> ]</h4>
         </div>
         <% end %>
       </div>

@@ -1,6 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  max-width: 70%;
+  margin: auto;
+  background-color: #fafafa;
+  font-family:  Arial, Helvetica, sans-serif;
+  margin-bottom: 80px;
+  color: gray;
+}
+
+#avatar {
+  padding-top: 10px;
+}
+
+#about-page {
+  padding-top: 30px;
+}
+
 .inlinePost {
   color: grey;
 }
