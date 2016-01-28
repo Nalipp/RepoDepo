@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-12">
-    <div class="col-md-4"></div>
+    <div class="col-md-3"></div>
     <div class=" col-md-6">
     <h1 class="col-md-offset-2">All users</h1>
     <table>
@@ -14,26 +14,29 @@
           <!-- <%# if user.twitter? %>
           <td><i><%#= link_to "", "", :target => "_blank", class:"fa fa-twitter-square"%></i></td>
           <%# end %> -->
-          <td id="user-table" class="col-xs-offset-1"><%= link_to user.name, user_path(user) %></td>
+          <p><td id="user-table" class="col-xs-offset-1"><%= link_to user.name, user_path(user) %></td></p>
+          <p><td id="user-table" class="col-xs-offset-1"><%= link_to "posts(#{user.posts.count})", user_path(user) %></td></p>
           <td>
-            <% if current_user.not_friends_with?(user.id) %>
-              <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: user),
-                                                class: "btn btn-xs btn-success", method: :post %>
-              <span class="label label-primary">Not friedns</span>
-            <% else %>
-              <span class="label label-primary">
-                You are friends
-              </span>
-            <%= link_to "Remove Friend", friendship_path(user), method: :delete,
-                                              data: { confirm: "Are you sure?" },
-                                              class:"btn btn-xs btn-danger" %>
+            <% if user_signed_in? %>
+              <% if current_user.not_friends_with?(user.id) %>
+                <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: user),
+                                                  class: "btn btn-xs btn-success", method: :post %>
+                <span class="label label-primary">Not friedns</span>
+              <% else %>
+                <span class="label label-primary">
+                  You are friends
+                </span>
+              <%= link_to "Remove Friend", friendship_path(user), method: :delete,
+                                                data: { confirm: "Are you sure?" },
+                                                class:"btn btn-xs btn-danger" %>
+              <% end %>
             <% end %>
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="col-md-2">
+    <div class="col-md-3">
     </div>
   </div>
 </div>

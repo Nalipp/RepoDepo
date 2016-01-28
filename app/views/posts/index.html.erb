@@ -5,7 +5,7 @@
       <div class="col-md-2"></div>
         <div class="col-md-8 col-xs-12">
           <div class="col-md-2">
-            <%= gravatar_for(post.user, 30) %>
+            <%= link_to gravatar_for(post.user, 30), user_path(post.user) %>
             <h6><%= link_to post.user.name, user_path(post.user) if post.user.name? %></h6>
           </div>
           <div class="col-md-8 col-xs-12">

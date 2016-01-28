@@ -4,11 +4,13 @@
       <div class="col-md-12">
         <h3>
           <%= @post.user.name %>
-          <% if @post.user.id == current_user.id || current_user.admin? %>
-            <%= link_to "", edit_post_path(@post), class: "glyphicon glyphicon-cog" %>
-            <%= link_to "", post_path(@post), method: :delete, data: {confirm: "Are you sure"},
-                                            class: "glyphicon glyphicon-trash" %>
+          <% if user_signed_in? %>
+            <% if @post.user.id == current_user.id || current_user.admin? %>
+              <%= link_to "", edit_post_path(@post), class: "glyphicon glyphicon-cog" %>
+              <%= link_to "", post_path(@post), method: :delete, data: {confirm: "Are you sure"},
+                                              class: "glyphicon glyphicon-trash" %>
         </h3>
+          <% end %>
         <% end %>
       </div>
     </div>
