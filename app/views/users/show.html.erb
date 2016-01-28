@@ -15,9 +15,7 @@
     <h4>Friends(<%= @user.friendships.count %>)
       <% if @user.github? %>
         <i class="icon-space-left"><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></i>
-      <!-- <% end %><% if @user.github? %>
-        <i><%#= link_to "", "https://twitter.com/nateplipp", :target => "_blank", class:"fa fa-twitter-square"%></i>
-      <% end %> -->
+      <% end %>
       <span class="icon-space-left h6"><%= @user.email %></span>
     </h4>
     <%= gravatar_for(@user, 100) %>
@@ -26,15 +24,7 @@
     <h4>About :</h4>
     <h5><%= @user.description %></h5>
     <% if user_signed_in? %>
-      <% if current_user.not_friends_with?(@user.id) %>
-        <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: @user),
-                                class: "btn btn-xs btn-success", method: :post %>
-      <% else %>
-        <span class="label label-primary">You are friends</span>
-        <%= link_to "Remove Friend", friendship_path(@user), method: :delete,
-                                          data: { confirm: "Are you sure?" },
-                                          class:"btn btn-xs btn-danger" %>
-      <% end %>
+      <%= render 'users/friend', obj: @user %>
     <% end %>
   </div>
 </div>

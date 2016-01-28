@@ -1,0 +1,8 @@
+<% if current_user.not_friends_with?(obj.id) %>
+  <%= link_to "follow", add_friend_path(user: current_user, friend: obj),
+                                    class: "btn btn-xs btn-success", method: :post %>
+<% else %>
+<span class="h3"><%= link_to "unfollow", friendship_path(obj), method: :delete,
+                                  data: { confirm: "Are you sure?" },
+                                  class:"btn btn-xs btn-danger" %></span>
+<% end %>

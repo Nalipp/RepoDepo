@@ -18,25 +18,9 @@
     <% if @users %>
     <% if @users.size > 0 %>
       <div class="col-md-10">
-        <table class="col-md-12">
-          <tbody>
-            <% @users.each do |user| %>
-            <tr>
-              <td id="user-table"> <%= user.name %></td>
-              <td id="user-table"> <%= user.email %></td>
-              <td id="user-table"> <%= link_to "View Profile", user_path(user),
-                                          class:"btn btn-xs btn-success" %>
-                <% if current_user.not_friends_with?(user.id) %>
-                  <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: user),
-                                          class: "btn btn-xs btn-success", method: :post %>
-                <% else %>
-                  <span class="label label-primary">You are friends</span>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div class="col-md-6">
+          <%= render 'users/user', obj: @users %>
+        </div>
       </div>
     <% else %>
       <p class="col-md-12">
