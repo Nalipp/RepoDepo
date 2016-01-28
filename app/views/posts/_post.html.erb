@@ -1,0 +1,20 @@
+<% obj.each do |post| %>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to gravatar_for(post.user, 30), user_path(post.user) %>
+    <h6><%= link_to post.user.name, user_path(post.user) if post.user.name? %></h6>
+  </div>
+  <div class="col-md-8 col-xs-12">
+    <h5>
+      <%= link_to post.title, post_path(post), id:"post-path"%>
+      <%= link_to post.link, "http://#{post.link}", :target => "_blank", id:"post-link" %>
+    </h5>
+    <h5>
+      <%= post.description %>
+    </h5>
+    <hr>
+  </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+<% end %>
