@@ -9,15 +9,15 @@
     <% end %>
     </span>
   </h1>
-  <h4><%= link_to "Friends", my_friends_path %> (<%= @user.friendships.count %>)</h4>
-  <%= gravatar_for(@user, 80) %>
-  <% if @user.github? %>
-    <i><h4><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></h4></i>
-  <% end %>
-  <% if @user.github? %>
-    <i><h4><%= link_to "", "https://twitter.com/nateplipp", :target => "_blank", class:"fa fa-twitter-square"%></h4></i>
-  <% end %>
-  <h4>Email : <%= @user.email %></h4>
+  <h4><%= link_to "Friends", my_friends_path %>(<%= @user.friendships.count %>)
+    <% if @user.github? %>
+      <i class="icon-space-left"><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></i>
+    <% end %><% if @user.github? %>
+      <i><%= link_to "", "https://twitter.com/nateplipp", :target => "_blank", class:"fa fa-twitter-square"%></i>
+    <% end %>
+  </h4>
+  <%= gravatar_for(@user, 100) %>
+  <h4><%= @user.email %></h4>
   <h4>About : <%= @user.description %></h4>
 
   <% if current_user.not_friends_with?(@user.id) %>
