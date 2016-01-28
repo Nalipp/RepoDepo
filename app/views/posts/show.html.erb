@@ -1,20 +1,33 @@
-<h1 class="well">show</h1>
 <div class="container">
-  <div>
-  <%= @post.title %>
-  </div>
-  <div>
-  <%= @post.description %>
-  </div>
-  <div>
-  <%= @post.link %>
-  </div>
-  <% if @post.user.id == current_user.id || current_user.admin? %>
-    <div class="container">
-      <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-xs btn-primary" %>
-      <%= link_to "Delete this post", post_path(@post), method: :delete,
-                                    data: {confirm: "Are you sure"}, class: "btn btn-xs btn-danger" %>
-      <%= link_to "View all posts", posts_path, class: "btn btn-xs btn-success" %>
+  <div class="col-md-12">
+    <div>
+      <div class="col-md-12">
+        <h3>
+          <%= @post.user.name %>
+          <% if @post.user.id == current_user.id || current_user.admin? %>
+            <%= link_to "", edit_post_path(@post), class: "glyphicon glyphicon-cog" %>
+            <%= link_to "", post_path(@post), method: :delete, data: {confirm: "Are you sure"},
+                                            class: "glyphicon glyphicon-trash" %>
+        </h3>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-</div>
+    <div class="col-md-1">
+      <h4><%= link_to gravatar_for(@post.user, 60), user_path(@post.user) %></h4>
+      <h2><%= link_to "", posts_path, class: "glyphicon glyphicon-arrow-left" %></h2>
+    </div>
+    <div class="col-md-8">
+    <strong><h4><%= @post.title %></strong> <span><%= link_to @post.link, "https://#{@post.link}",
+                          :target => "_blank", id:"post-link" %></span></h4>
+    <%= @post.description %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-8">
+
+  </div>
+  <div>
+
+  </div>

@@ -1,29 +1,38 @@
 <div class="container">
-  <h1><%= @user.name %>
-    <span>
-    <% if @user.id == current_user.id || current_user.admin? %>
-      <%= link_to "", edit_user_registration_path, class:"glyphicon glyphicon-cog" %>
+  <div class="col-md-12">
+    <h1><%= @user.name %>
+      <span>
+      <% if @user.id == current_user.id || current_user.admin? %>
+        <%= link_to "", edit_user_registration_path, class:"glyphicon glyphicon-cog" %>
+      <% end %>
+      <% if current_user.admin? %>
+        <%= link_to "Destroy", admin_destroy_user_path, class:"btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } %>
+      <% end %>
+      </span>
+    </h1>
+    <h4><%= link_to "Friends", my_friends_path %>(<%= @user.friendships.count %>)
+      <% if @user.github? %>
+        <i class="icon-space-left"><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></i>
+      <% end %><% if @user.github? %>
+        <i><%= link_to "", "https://twitter.com/nateplipp", :target => "_blank", class:"fa fa-twitter-square"%></i>
+      <% end %>
+      <span class="icon-space-left h6"><%= @user.email %></span>
+    </h4>
+    <%= gravatar_for(@user, 100) %>
+  </div>
+  <div class="col-md-6">
+    <h4>About :</h4>
+    <h5><%= @user.description %></h5>
+    <% if current_user.not_friends_with?(@user.id) %>
+      <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: @user),
+                              class: "btn btn-xs btn-success", method: :post %>
+    <% else %>
+      <span class="label label-primary">You are friends</span>
+      <%= link_to "Remove Friend", friendship_path(@user), method: :delete,
+                                        data: { confirm: "Are you sure?" },
+                                        class:"btn btn-xs btn-danger" %>
     <% end %>
-    <% if current_user.admin? %>
-      <%= link_to "Destroy", admin_destroy_user_path, class:"btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
-    </span>
-  </h1>
-  <h4><%= link_to "Friends", my_friends_path %>(<%= @user.friendships.count %>)
-    <% if @user.github? %>
-      <i class="icon-space-left"><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></i>
-    <% end %><% if @user.github? %>
-      <i><%= link_to "", "https://twitter.com/nateplipp", :target => "_blank", class:"fa fa-twitter-square"%></i>
-    <% end %>
-  </h4>
-  <%= gravatar_for(@user, 100) %>
-  <h4><%= @user.email %></h4>
-  <h4>About : <%= @user.description %></h4>
-
-  <% if current_user.not_friends_with?(@user.id) %>
-    <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: @user),
-                            class: "btn btn-xs btn-success", method: :post %>
-  <% else %>
-    <span class="label label-primary">You are friends</span>
-  <% end %>
+  </div>
+  <div class="col-md-6">
+  </div>
 </div>
