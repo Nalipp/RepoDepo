@@ -1,7 +1,12 @@
 class Post < ActiveRecord::Base
+  acts_as_votable
+
   belongs_to :user
   validates :user_id, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :description, length: { maximum: 150 }
-  #validates :link, :format => URI::regexp(%w(http https))
+
+  def score
+  self.get_upvotes.size - self.get_downvotes.size
+  end
 end
