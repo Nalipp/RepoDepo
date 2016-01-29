@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -39,6 +41,14 @@ class User < ActiveRecord::Base
 
   def self.matches(field_name, param)
     where("lower(#{field_name}) like ?", "%#{param}%")
+  end
+
+  def increase_karma(count=1)
+   update_attribute(:karma, karma + count)
+  end
+
+  def decrease_karma(count=1)
+    update_attribute(:karma, karma - count)
   end
 
 end

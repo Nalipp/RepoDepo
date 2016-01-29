@@ -48,12 +48,14 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     @post.liked_by current_user
+    @post.user.increase_karma
     redirect_to :back
   end
 
   def unlike
     @post = Post.find(params[:id])
     @post.unliked_by current_user
+    @post.user.decrease_karma
     redirect_to :back
   end
 
