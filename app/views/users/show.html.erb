@@ -12,7 +12,7 @@
       <% end %>
       </span>
     </h1>
-    <h4>Friends(<%= @user.friendships.count %>)
+    <h4>Following(<%= @user.friendships.count %>)
       <% if @user.github? %>
         <i class="icon-space-left"><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></i>
       <% end %>

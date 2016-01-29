@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :description, length: { maximum: 150 }
+  #validates :link, :format => URI::regexp(%w(http https))
 end
