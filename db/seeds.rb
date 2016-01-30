@@ -29,7 +29,7 @@ Post.create!(title: "Add upvotes with acts as votable gem",
   title = Faker::Hipster.word
   description = Faker::Hipster.sentence
   link = "https://github.com"
-  user_id = "#{n+1}"
+  user_id = rand(25)
 
   User.create!(name:  name,
                email: email,
