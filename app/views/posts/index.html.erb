@@ -4,6 +4,9 @@
     <div class="col-md-8" id="pad-top">
       <h2 id="new-post-icon"><%= link_to " NewProject", new_post_path, class: "glyphicon glyphicon-plus"%></h2>
       <%= render 'posts/post', obj: @posts %>
+      <div align="center">
+	       <%= will_paginate @posts %>
+	    </div>
     </div>
     <div class="col-md-2">
     </div>
