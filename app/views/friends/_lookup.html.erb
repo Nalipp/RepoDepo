@@ -1,23 +1,23 @@
 <div class="container">
   <div id="friend-lookup">
-    <h5>Search for friends</h5>
     <%= form_tag search_friends_path, remote: true, method: :get, id: "friend-lookup-form" do %>
       <div class="form-group text-center col-md-12">
         <div class="col-md-2">
           <%= text_field_tag :search_param, params[:search_param],
-                              placeholder: "name, or email", autofocus: true,
+                              placeholder: "name, email", autofocus: true,
                               class: 'form-control search-box input-sm' %>
         </div>
         <div class="col-md-2">
           <%= button_tag(type: :submit, class: "btn btn-sm btn-success") do %>
-            <i class="fa fa-search"></i> Look up a friend
+            <i class="fa fa-search"></i> Search
           <% end %>
         </div>
       </div>
     <% end %>
+    <%= render 'common/spinner' %>
     <% if @users %>
     <% if @users.size > 0 %>
-      <div class="col-md-10">
+      <div id="friend-lookup-results" class="col-md-10">
         <div class="col-md-6">
           <%= render 'users/user', obj: @users %>
         </div>
@@ -27,5 +27,6 @@
         No people match this search
       </p>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
