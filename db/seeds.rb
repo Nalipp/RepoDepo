@@ -9,6 +9,7 @@
 User.create!(name:  "Nate Lipp",
              email: "nateplipp@gmail.com",
              github: "github.com/Nalipp",
+             twitter: "twitter.com/nateplipp",
              password:              "password",
              password_confirmation: "password",
              admin: "true")
@@ -20,25 +21,50 @@ Post.create!(title: "Add upvotes with acts as votable gem",
              user_id: "1",
 )
 
-20.times do |n|
+5.times do |n|
   name  = Faker::Name.name
   email = Faker::Internet.free_email
-  github = "github.com"
   password = "password"
-
-  title = Faker::Hipster.word
-  description = Faker::Hipster.sentence
-  link = "https://github.com"
-  user_id = (rand(1..20))
 
   User.create!(name:  name,
                email: email,
-               github: github,
+               github: "github.com",
                password:              password,
                password_confirmation: password)
+end
+
+10.times do |n|
+  name  = Faker::Name.name
+  email = Faker::Internet.free_email
+  password = "password"
+
+  User.create!(name:  name,
+               email: email,
+               github: "github.com",
+               twitter: "twitter.com",
+               password:              password,
+               password_confirmation: password)
+end
+
+5.times do |n|
+  name  = Faker::Name.name
+  email = Faker::Internet.free_email
+  password = "password"
+
+  User.create!(name:  name,
+               email: email,
+               twitter: "twitter.com",
+               password:              password,
+               password_confirmation: password)
+end
+
+30.times do |n|
+  title = Faker::Hipster.word
+  description = Faker::Hipster.sentence
+  user_id = (rand(1..20))
 
   Post.create!(title: title,
                description: description,
-               link: link,
+               link: "github.com",
                user_id: user_id)
 end

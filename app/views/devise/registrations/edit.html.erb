@@ -24,7 +24,11 @@
         </div>
 
         <div class="field">
-          <%= f.text_field :github, class: "form-control", placeholder: "github", autofocus: true %><br />
+          <%= f.text_field :github, class: "form-control", placeholder: "github url (optional)", autofocus: true %><br />
+        </div>
+
+        <div class="field">
+          <%= f.text_field :twitter, class: "form-control", placeholder: "twitter url (optional)", autofocus: true %></br>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

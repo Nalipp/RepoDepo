@@ -4,8 +4,8 @@ class User::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:name, :github, :description)
-    devise_parameter_sanitizer.for(:account_update).push(:name, :github, :description)
+    devise_parameter_sanitizer.for(:sign_up).push(:name, :github, :twitter, :description)
+    devise_parameter_sanitizer.for(:account_update).push(:name, :github, :twitter, :description)
   end
 
   def after_update_path_for(user)

@@ -5,6 +5,13 @@
       <td id="user-table" class="col-xs-1"><%= link_to gravatar_for(user, 30), user_path(user) %></td>
       <% if user.github? %>
       <td><h4><i class="icon-space-left"><%= link_to "", "http://#{user.github}", :target => "_blank", class:"fa fa-github-alt", id:"icon-space"%></i></h4></td>
+      <% else %>
+        <td><h4></h4></td>
+      <% end %>
+      <% if user.twitter? %>
+        <td><h4><i class="icon-space-left"><%= link_to "", "http://#{user.twitter}", :target => "_blank", class:"fa fa-twitter-square", id:"icon-space"%></i></h4></td>
+      <% else %>
+        <td><h4></h4></td>
       <% end %>
       <p><td id="user-table" class="col-xs-offset-1"><%= link_to "#{user.name}(#{user.posts.count})", user_path(user) %></td></p>
       <td>

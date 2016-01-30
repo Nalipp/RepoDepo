@@ -16,6 +16,9 @@
       <% if @user.github? %>
         <i class="icon-space-left"><%= link_to "", "https://#{@user.github}", :target => "_blank", class:"fa fa-github-alt"%></i>
       <% end %>
+      <% if @user.twitter? %>
+        <i class="icon-space-left"><%= link_to "", "https://#{@user.twitter}", :target => "_blank", class:"fa fa-twitter-square"%></i>
+      <% end %>
       <span class="icon-space-left h6"><%= @user.email %></span>
     </h4>
     <%= gravatar_for(@user, 100) %>
