@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 12)
   end
 
   def show
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def my_friends
-    @friendships = current_user.friends
+    @friendships = current_user.friends.paginate(page: params[:page], per_page: 12)
   end
 
   def search

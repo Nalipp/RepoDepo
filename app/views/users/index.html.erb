@@ -4,7 +4,9 @@
     <div class=" col-md-6">
     <h1 class="col-md-offset-2">All users</h1>
     <%= render 'users/user', obj: @users %>
-    </table>
+      <div align="center">
+        <%= will_paginate %>
+      </div>
     <div class="col-md-3">
     </div>
   </div>

@@ -6,6 +6,9 @@
     <% if @friendships.size > 0 %>
       <h3>My Freinds</h3>
       <%= render 'users/user', obj: @friendships %>
+      <div align="center">
+        <%= will_paginate @friendships %>
+      </div>
     <% else %>
       <div class="row col-xs-12">
         <p>You are not currently following anyone</p>
