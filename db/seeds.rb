@@ -58,7 +58,7 @@ end
                password_confirmation: password)
 end
 
-30.times do |n|
+20.times do |n|
   title = Faker::Hipster.word
   description = Faker::Hipster.sentence
   user_id = (rand(1..20))
