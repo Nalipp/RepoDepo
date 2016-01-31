@@ -12,6 +12,17 @@ p {
   line-height: 22px;
 }
 
+.link-unstyle {
+  .link-unstyle {
+    color: red;
+}
+.link-unstyle:hover,
+.link-unstyle:focus {
+    color: red;
+    text-decoration: none;
+  }
+}
+
 #post-score {
   padding-left: 5px;
 }
@@ -67,8 +78,6 @@ p {
 #post-link {
   color: lightgray;
 }
-
-/********** CUSTOMIZE POSTS **********/
 
 .post-container {
   padding-top: 40px;
