@@ -1,5 +1,5 @@
 https://www.udemy.com/the-complete-ruby-on-rails-developer-course/
-<br>
+
 http://www.mashrurhossain.com/blog/code-challenge-january-2016
 
 RepoDepo
