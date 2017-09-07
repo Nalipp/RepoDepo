@@ -1,6 +1,8 @@
-https://www.udemy.com/the-complete-ruby-on-rails-developer-course
+https://share-my-repo.herokuapp.com/
 
 http://www.mashrurhossain.com/blog/code-challenge-january-2016
 
-RepoDepo
 New developers find and share coding projects
+
+![screenshot](./portfolio_share_my_repo.jpg)
+
